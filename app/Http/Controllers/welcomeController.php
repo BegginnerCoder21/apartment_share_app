@@ -8,8 +8,6 @@ class welcomeController extends Controller
 {
     public function __invoke()
     {
-        return response()->json([
-            'Message' => "Bienvenue au cours de framework"
-        ]);
+            return view('welcomes');
     }
 }
