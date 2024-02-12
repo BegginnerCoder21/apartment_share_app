@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('search_posts', function (Blueprint $table) {
+        Schema::create('housing_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('budget');
-            $table->text('description');
-            $table->foreignIdFor(\App\Models\User::class);
+            $table->string('libelle');
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('search_posts');
+        Schema::dropIfExists('housing_types');
     }
 };

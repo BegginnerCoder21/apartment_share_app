@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('imageUrl');
             $table->string('libelle');
+            $table->foreignIdFor(\App\Models\HousingPost::class);
             $table->timestamps();
         });
     }

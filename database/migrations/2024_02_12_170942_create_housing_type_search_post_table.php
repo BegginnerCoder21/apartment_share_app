@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\City;
+use App\Models\SearchPost;
+use App\Models\HousingType;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -12,10 +13,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('communes', function (Blueprint $table) {
+        Schema::create('housing_type_search_post', function (Blueprint $table) {
             $table->id();
-            $table->string('libelle');
-            $table->foreignIdFor(City::class);
+            $table->foreignIdFor(SearchPost::class);
+            $table->foreignIdFor(HousingType::class);
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('communes');
+        Schema::dropIfExists('housing_type_search_post');
     }
 };

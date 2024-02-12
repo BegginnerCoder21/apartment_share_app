@@ -18,6 +18,9 @@ return new class extends Migration
             $table->integer('security_deposit');
             $table->text('description_post');
             $table->string('roommate_gender');
+            $table->foreignIdFor(\App\Models\Commune::class);
+            $table->foreignIdFor(\App\Models\User::class);
+            $table->foreignIdFor(\App\Models\HousingType::class);
             $table->timestamps();
         });
     }

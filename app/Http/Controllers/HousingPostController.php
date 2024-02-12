@@ -10,10 +10,10 @@ class HousingPostController extends Controller
 {
     public function createHousingPost(CreatingHousingPostRequest $request)
     {
-        if(!$request->has('is_furnished')){
+        if (!$request->has('is_furnished')) {
 
             $request->merge(["is_furnished" => 0]);
-        }else{
+        } else {
             $request->merge(["is_furnished" => 1]);
         }
 
@@ -21,7 +21,8 @@ class HousingPostController extends Controller
             [
                 ...$request->validated(),
                 "is_furnished" => $request->is_furnished
-            ]);
+            ]
+        );
 
         return redirect()->route('accueil')->with(["success" => "Le poste a été crée avec succès."]);
     }
