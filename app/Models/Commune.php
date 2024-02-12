@@ -16,7 +16,10 @@ class Commune extends Model
         return $this->belongsTo(City::class);
     }
 
-
+    public function searchPosts():BelongsToMany
+    {
+        return $this->belongsToMany(SearchPost::class);
+    }
 
 
 }
