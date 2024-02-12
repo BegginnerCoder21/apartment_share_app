@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class HousingType extends Model
 {
@@ -13,5 +14,10 @@ class HousingType extends Model
     public function searchPost():BelongsToMany
     {
         return  $this->belongsToMany(SearchPost::class);
+    }
+
+    public function housingPost():HasMany
+    {
+        return $this->hasMany(HousingPost::class);
     }
 }

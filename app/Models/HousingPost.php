@@ -14,4 +14,9 @@ class HousingPost extends Model
     {
         return $this->belongsTo(Commune::class);
     }
+
+    public function housingType():BelongsTo
+    {
+        return $this->belongsTo(HousingType::class);
+    }
 }
