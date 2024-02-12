@@ -16,6 +16,11 @@ class SearchPost extends Model
         return $this->belongsToMany(Commune::class);
     }
 
+    public function housingType():BelongsToMany
+    {
+        return $this->belongsToMany(HousingType::class);
+    }
+
     public function user():BelongsTo
     {
         return $this->belongsTo(User::class);
