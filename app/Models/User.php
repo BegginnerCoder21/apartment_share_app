@@ -19,8 +19,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
         'password',
         'phone_number',
         'login',
@@ -28,6 +26,7 @@ class User extends Authenticatable
         'lastname',
         'description',
         'dateOfBirth',
+        'gender'
     ];
 
     public function housingPosts():HasMany
