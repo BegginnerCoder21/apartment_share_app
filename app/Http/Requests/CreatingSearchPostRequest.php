@@ -22,8 +22,12 @@ class CreatingSearchPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'budget' =>  ["integer","required"],
-            "description" => ['string',"required"]
+            'budget' =>  ["integer", "required"],
+            "description" => ['string', "required"],
+            'communes' => ['required', 'array'],
+            'coloc_gender' => ['required','integer'],
+            'availability_date' => ['required', 'date'],
+            'appartment_type' => ['required', 'integer']
         ];
     }
 }

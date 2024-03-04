@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->integer('budget');
             $table->text('description');
+            $table->integer('coloc_gender');
+            $table->date('availability_date');
+            $table->integer('appartment_type');
             $table->foreignIdFor(\App\Models\User::class);
             $table->timestamps();
         });

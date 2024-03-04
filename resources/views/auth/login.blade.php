@@ -9,12 +9,17 @@
         </div>
         <x-auth-session-status class="mb-4" :status="session('status')" />
         @foreach ($errors->all() as $error)
-                <div class="text-red-500 mt-2xx">
-                    {{$error}}
-                </div>
-            @endforeach
+        <div class="text-red-500 mt-2xx">
+          {{$error}}
+        </div>
+        @endforeach
         <form action="{{ route('login') }}" method="POST" enctype="multipart/form-data" class="flex flex-col gap-y-9 gap-x-4 p-6">
           @csrf
+          @if (Session::has('success'))
+            <div class="w-full h-[30px] text-center font-semibold bg-green-400 text-white ">
+              {{ Session::get('success') }}
+            </div>
+          @endif
           <div class="relative h-11 w-full min-w-[200px]">
             <input
               class="focus:ring-0 peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-indigo-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"

@@ -54,7 +54,7 @@
                                     class="w-[250px] px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                     id="login"
                                     name="login"
-                                    type="text"
+                                    type="email"
                                     placeholder=" Email ou Numéro"
                                 />
                             </div>

@@ -24,7 +24,7 @@ class Commune extends Model
 
     public function searchPosts():BelongsToMany
     {
-        return $this->belongsToMany(SearchPost::class);
+        return $this->belongsToMany(SearchPost::class,'commune_search_post', 'commune_id', 'search_post_id');
     }
 
 

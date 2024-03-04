@@ -11,19 +11,28 @@ class SearchPost extends Model
 {
     use HasFactory;
 
-    public function communes():BelongsToMany
+    protected $fillable = [
+        'budget',
+        "description",
+        'communes',
+        'coloc_gender',
+        'availability_date',
+        'appartment_type',
+        'user_id'
+    ];
+
+    public function communes(): BelongsToMany
     {
-        return $this->belongsToMany(Commune::class);
+        return $this->belongsToMany(Commune::class, 'commune_search_post', 'search_post_id', 'commune_id');
     }
 
-    public function housingType():BelongsToMany
+    public function housingType(): BelongsToMany
     {
         return $this->belongsToMany(HousingType::class);
     }
 
-    public function user():BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-
 }

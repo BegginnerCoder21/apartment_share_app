@@ -30,9 +30,9 @@ class CreatingUserRequest extends FormRequest
             'gender' => ['required','string'],
             'phone_number' => ['required','string'],
             'dateOfBirth' => ['required','date'],
+            'communes' => ['required', 'array'],
             'description' => ['string'],
             'password' => ['required','string','confirmed','min:6'],
-            'password_confirmation' => ['required','string','min:6']
         ];
     }
 

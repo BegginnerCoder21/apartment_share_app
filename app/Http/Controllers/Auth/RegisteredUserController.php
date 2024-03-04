@@ -5,14 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatingUserRequest;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
@@ -41,15 +35,12 @@ class RegisteredUserController extends Controller
         try {
 
             DB::beginTransaction();
-            // dd($request->validated('gender'));
-            $user = User::create($request->validated());
 
-            event(new Registered($user));
+            // dd($request->validated());
+            User::create($request->validated());
 
-            Auth::login($user);
-
-            return redirect(RouteServiceProvider::HOME);
             DB::commit();
+            return redirect()->route('login')->with(['success' => 'inscription effectué avec succès !']);
         } catch (\Exception $ex) {
             DB::rollBack();
             dd($ex);
