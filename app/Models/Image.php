@@ -10,6 +10,11 @@ class Image extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'imageUrl',
+        'housing_post_id'
+    ];
+
     public function housingPost():BelongsTo
     {
         return $this->belongsTo(HousingPost::class);

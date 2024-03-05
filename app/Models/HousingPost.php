@@ -11,6 +11,12 @@ class HousingPost extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
+    protected $cast = [
+        'is_furnished' => 'boolean'
+    ];
+
     public function commune():BelongsTo
     {
         return $this->belongsTo(Commune::class);
