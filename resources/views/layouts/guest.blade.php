@@ -23,7 +23,7 @@
 </style>
 
     </head>
-    <body class="font-sans text-gray-900 antialiased">
+    <body class="font-sans text-gray-900 antialiased" id="app">
         <div class="min-h-screen  pt-6 sm:pt-0">
             
             

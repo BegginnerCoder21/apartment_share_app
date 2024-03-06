@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\Image;
+use App\Models\HousingType;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class HousingPost extends Model
 {
@@ -27,7 +30,13 @@ class HousingPost extends Model
         return $this->belongsTo(HousingType::class);
     }
 
-    public function images():HasMany{
+    public function images():HasMany
+    {
         return $this->hasMany(Image::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }
