@@ -32,6 +32,8 @@ Route::get('/dashboard', function () {
 
 Route::get('/get-post-roommate',[MainRoommatePostController::class,'allPostRoommate']);
 Route::get('/get-search-post',[MainSearchPostController::class,'allSearchPost']);
+Route::get('/details-post-roommate/{id}',[MainRoommatePostController::class,'detailsPostRoommate']);
+Route::get('/details-search-post/{id}',[MainSearchPostController::class,'detailsSearchPost']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/search-roommate',[SearchRoommateController::class,'index'])->name('post.search.roommate');

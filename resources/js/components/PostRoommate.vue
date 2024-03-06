@@ -1,7 +1,7 @@
 <template>
     <div class="grid w-full mb-14 gap-y-6 grid-cols-1 mt-10  sm:grid-cols-2 lg:grid-cols-3">
         <div v-for="post in dataRoommate" class="relative mx-auto w-[80%]">
-                    <a href="#" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
+                    <a :href="getUrl(post.id)" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
                     <div class="rounded-lg bg-white p-4 shadow">
                         <div class="relative flex h-52 justify-center overflow-hidden rounded-lg">
                         <div class="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
@@ -53,15 +53,18 @@
 import {onMounted,ref} from 'vue';
 const dataRoommate = ref([]);
 
+const getUrl = (id) => {
+    
+    return '/details-post-roommate/' + id;
+}
+
 const getImageUrl = (imageUrl) => {
-        console.log(imageUrl);
         return 'storage/postImage/' + imageUrl;
     }
 
 onMounted(async() => {
     await axios.get('get-post-roommate').then((res) => {
         dataRoommate.value = res.data.postRoommate
-        console.log( dataRoommate.value);
     }).catch((error) => {
         console.log('error',error);
     })
