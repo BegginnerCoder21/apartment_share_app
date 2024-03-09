@@ -17,7 +17,7 @@
         <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-white focus:text-gray-900 hover:bg-indigo-500 focus:bg-indigo-400 focus:outline-none focus:shadow-outline" href="#apropos">A Propos</a>
         @guest
           <div @click.away="open = false" class="relative" x-data="{ open: false }">
-              <button @click="open = !open" class="flex hover:text-white flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-indigo-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4  focus:text-white hover:bg-indigo-500 focus:bg-indigo-500 focus:outline-none focus:shadow-outline">
+              <button x-on:click="open = !open" class="flex hover:text-white flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-indigo-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4  focus:text-white hover:bg-indigo-500 focus:bg-indigo-500 focus:outline-none focus:shadow-outline">
               <span class="">
                   S'identifier
               </span>
@@ -33,7 +33,7 @@
         @endguest
         @auth    
           <div @click.away="open = false" class="relative" x-data="{ open: false }">
-              <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-indigo-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:outline-none focus:shadow-outline">
+              <button x-on:click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-indigo-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:outline-none focus:shadow-outline">
               <span>
                   {{ Auth::user()->firstname }}
               </span>

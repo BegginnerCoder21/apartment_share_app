@@ -1,7 +1,7 @@
 <template>
     <div class="grid w-full mb-14 gap-y-6 grid-cols-1 mt-10  sm:grid-cols-2 lg:grid-cols-3">
         <div v-for="post in dataSearchPost" class="relative mx-auto w-[80%]">
-                <a :href="getUrl(post.id)" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
+                <a :href="getUrlSearchPost(post.id)" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
                 <div class="rounded-lg bg-white p-4 shadow">
 
                     <p class="text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate cumque ipsa tempore repudiandae beatae sit exercitationem doloribus</p>
@@ -36,21 +36,20 @@
 
 <script setup>
 
-import {onMounted,ref} from 'vue';
-const dataSearchPost = ref([]);
+import {onMounted} from 'vue';
+import usePosts from '../composables/usePosts';
 
-const getUrl = (id) => {
+
+const {
     
-    return '/details-search-post/' + id;
-}
+    getSearchPost,
+    getUrlSearchPost,
+    dataSearchPost
+
+} = usePosts();
 
 onMounted(async() => {
-    await axios.get('/get-search-post').then((res) => {
-        dataSearchPost.value = res.data.SearchPost
-        console.log( dataSearchPost.value);
-    }).catch((error) => {
-        console.log('error',error);
-    });
+    await getSearchPost()
 });
 
 </script>

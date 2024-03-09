@@ -50,24 +50,18 @@
 
 <script setup>
 
-import {onMounted,ref} from 'vue';
-const dataRoommate = ref([]);
+import {onMounted} from 'vue';
+import usePosts from '../composables/usePosts';
 
-const getUrl = (id) => {
-    
-    return '/details-post-roommate/' + id;
-}
-
-const getImageUrl = (imageUrl) => {
-        return 'storage/postImage/' + imageUrl;
-    }
+const {
+    dataRoommate,
+    getUrl,
+    getImageUrl,
+    getPostRoommate
+} = usePosts();
 
 onMounted(async() => {
-    await axios.get('get-post-roommate').then((res) => {
-        dataRoommate.value = res.data.postRoommate
-    }).catch((error) => {
-        console.log('error',error);
-    })
+    await getPostRoommate()
 });
 
 </script>

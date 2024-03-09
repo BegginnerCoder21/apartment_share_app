@@ -71,7 +71,7 @@ const data = ref({
 
 const submit_data = async() => {
  
-    const response = await axios.post('http://127.0.0.1:8000/search-store-appartment',data.value);
+    await axios.post('http://127.0.0.1:8000/search-store-appartment',data.value);
 
     data.value.appartment_type = 1;
     data.value.availability_date = '';

@@ -30,19 +30,7 @@
 <div class="flex justify-center w-[70%]  mx-auto">
 	<div class="container mx-auto  rounded-lg p-14">
         {{-- Search bar --}}
-		<form id="recherche">
-
-			<div class="sm:flex items-center bg-indigo-500 rounded-lg overflow-hidden px-2 py-1 justify-between">
-					<input class="text-base w-[400px] text-gray-400 flex-grow outline-none px-2 " type="text" placeholder="Entrer une commune..." />
-				<div class="ms:flex items-center px-2 rounded-lg space-x-4 mx-auto ">
-                    <select id="type" name="type" class="text-base w-[135px] text-gray-800 outline-none px-4 py-2 rounded-lg">
-                        <option value="1" selected>Colocation</option>
-                        <option value="2">Colocataire</option>
-                    </select>
-                    <button class="bg-white hover:bg-indigo-400 hover:text-white  text-indigo-500 text-base rounded-lg px-4 py-2 font-thin">Rechercher</button>
-                </div>
-			</div>
-		</form>
+		<search-bar/>
 	</div>
 </div>
 <div class="mx-4">
@@ -112,12 +100,13 @@
         
         <div>
             <button class="py-2 px-4 bg-transparent text-indigo-500 font-semibold border border-indigo-500 rounded hover:bg-indigo-500 hover:text-white hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
-                Trouver une chambre
+                <a href="{{ route('post.search.roommate') }}">Proposer un appartement </a>
             </button>
         </div>
         <div>
-            <button class="py-2 px-4 bg-indigo-500 text-white font-semibold border border-white rounded hover:bg-white hover:text-indigo-500 hover:border-indigo-500 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
-                Publier votre chambre
+            <button class="py-2 px-4 text-indigo-500 font-semibold border border-indigo-500 rounded hover:bg-[#fdb414] hover:text-white hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
+                <a href="{{ route('post.search.appartment') }}">Se proposer pour colocation</a>
+                
             </button>
         </div>
     </div>

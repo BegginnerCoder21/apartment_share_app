@@ -1,4 +1,5 @@
 <x-guest-layout>
+    @include('components.header')
     <div class="flex flex-col space-y-6 mt-6 justify-center items-center mb-32">
         <div class="flex flex-col justify-center items-center">
             <div class=" border-2 border-indigo-500 flex flex-col items-center rounded-[20px] w-[700px] max-w-[95%] mx-auto bg-white  shadow-3xl shadow-shadow-500  p-3">
