@@ -1,6 +1,9 @@
 <template>
-    <div class="grid w-full mb-14 gap-y-6 grid-cols-1 mt-10  sm:grid-cols-2 lg:grid-cols-3">
-        <div v-for="post in dataRoommate" class="relative mx-auto w-[80%]">
+    <div id="apartment">
+        <h1 class="text-4xl text-center font-semibold ">Les appartements proposés en colocation</h1>  
+        <div>
+            <div class="grid w-full mb-14 gap-y-6 grid-cols-1 mt-10  sm:grid-cols-2 lg:grid-cols-3">
+        <div v-for="post in props.dataRoommate" :key="post.id" class="relative mx-auto w-[80%]">
                     <a :href="getUrl(post.id)" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
                     <div class="rounded-lg bg-white p-4 shadow">
                         <div class="relative flex h-52 justify-center overflow-hidden rounded-lg">
@@ -39,33 +42,43 @@
     
                             <p class="line-clamp-1 ml-2 text-gray-800">{{post.user.firstname}} {{post.user.lastname}}</p>
                         </div>
-    
                         
                         </div>
                     </div>
                     </a>
         </div>
     </div>
+        </div>
+    
+    </div>
+    
 </template>
 
-<script setup>
+<script setup lang='ts'>
 
-import {onMounted} from 'vue';
-import usePosts from '../composables/usePosts';
+import {onMounted, watch} from 'vue';
+import usePosts from '../../composables/usePosts';
+
+
+const props = defineProps<{
+    dataRoommate : []
+}>();
 
 const {
-    dataRoommate,
+    
     getUrl,
     getImageUrl,
-    getPostRoommate
+    
 } = usePosts();
 
-onMounted(async() => {
-    await getPostRoommate()
-});
+
+
+
+
 
 </script>
 
 <style  scoped>
 
 </style>
+

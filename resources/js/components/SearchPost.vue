@@ -73,12 +73,7 @@ const submit_data = async() => {
  
     await axios.post('http://127.0.0.1:8000/search-store-appartment',data.value);
 
-    data.value.appartment_type = 1;
-    data.value.availability_date = '';
-    data.value.budget = 0;
-    data.value.coloc_gender = 1;
-    data.value.communes = [];
-    data.value.description = "";
+    window.location.href = "/";
 }
     
     onMounted(async () => {

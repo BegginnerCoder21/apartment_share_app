@@ -1,13 +1,17 @@
 <template>
-    <div class="grid w-full mb-14 gap-y-6 grid-cols-1 mt-10  sm:grid-cols-2 lg:grid-cols-3">
-        <div v-for="post in dataSearchPost" class="relative mx-auto w-[80%]">
+    <div id="colocataire">
+            <h1 class="text-4xl text-center font-semibold ">Les personnes recherchants une colocation</h1>
+            <div>
+    
+                <div class="grid w-full mb-14 gap-y-6 grid-cols-1 mt-10  sm:grid-cols-2 lg:grid-cols-3">
+            <div v-for="post in props.dataSearchPost" :key="post.id" class="relative mx-auto w-[80%]">
                 <a :href="getUrlSearchPost(post.id)" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
                 <div class="rounded-lg bg-white p-4 shadow">
 
                     <p class="text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate cumque ipsa tempore repudiandae beatae sit exercitationem doloribus</p>
                     <div class="space-y-3 mt-6">
                         <h1 class="text-xl font-semibold ">Commune shouhaité:</h1>
-                        <div v-for="commune in post.communes" class="space-x-3 mt-3 grid grid-cols-3 space-y-2">
+                        <div v-for="commune in post.communes" :key="commune.id" class="space-x-3 mt-3 grid grid-cols-3 space-y-2">
                             
                             <span class="bg-indigo-500 flex flex-row px-2 py-1 text-xs font-semibold text-white"> {{ commune.libelle }}</span>
                         </div>
@@ -31,29 +35,34 @@
                 </div>
                 </a>
             </div>
+        </div>
+            </div>
+            
     </div>
+    
 </template>
-
-<script setup>
+<script setup lang='ts'>
 
 import {onMounted} from 'vue';
-import usePosts from '../composables/usePosts';
+import usePosts from '../../composables/usePosts';
 
+
+const props = defineProps<{
+    dataSearchPost : []
+}>();
 
 const {
     
-    getSearchPost,
+    
     getUrlSearchPost,
-    dataSearchPost
+    
 
 } = usePosts();
 
-onMounted(async() => {
-    await getSearchPost()
-});
+
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

@@ -10,48 +10,19 @@
             <p class="text-wrap">Trouver le compagnon idéal pour partager bien plus qu'un toit découvrez notre application de colocation dès maintenant !</p>
         </div>
         <div class="flex flex-row space-x-3">
-            <div>
-                <button class="py-2 px-4 bg-transparent text-indigo-500 font-semibold border border-indigo-500 rounded hover:bg-indigo-500 hover:text-white hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
-                    <a href="{{ route('post.search.roommate') }}">Proposer un appartement </a>
-                </button>
-            </div>
-            <div>
-                <button class="py-2 px-4 text-indigo-500 font-semibold border border-indigo-500 rounded hover:bg-[#fdb414] hover:text-white hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
-                    <a href="{{ route('post.search.appartment') }}">Se proposer pour colocation</a>
-                    
-                </button>
-            </div>
+            @include('postButton.offerAnApartment')
+            @include('postButton.offerToShare')
         </div>
     </div>
     <div class="">
         <img src="{{ asset('build/assets/coloc4.jpg') }}" class=" h-[450px] " alt="">
     </div>
 </div>
-<div class="flex justify-center w-[70%]  mx-auto">
-	<div class="container mx-auto  rounded-lg p-14">
-        {{-- Search bar --}}
-		<search-bar/>
-	</div>
-</div>
+
+    <post-component></post-component>
+
 <div class="mx-4">
-    <div id="apartment">
-        <h1 class="text-4xl text-center font-semibold ">Les appartements proposés en colocation</h1>  
-        <div>
-        <post-roommate/>
-           
-        </div>
-
-    </div>
-    {{-- Carte d'appartement --}}
-
-    {{-- carte de colocataire --}}
-    <div id="colocataire">
-        <h1 class="text-4xl text-center font-semibold ">Les personnes recherchants une colocation</h1>
-        <div>
-            <post-search-appartment/>
-        </div>
-
-    </div>
+    
     
     {{-- A propos de nous --}}
     <div id="apropos" class=" flex flex-row gap-10 mx-6 justify-center items-start mb-16">
@@ -98,17 +69,8 @@
     
     <div class="flex flex-row gap-32 mb-16 justify-center items-center">
         
-        <div>
-            <button class="py-2 px-4 bg-transparent text-indigo-500 font-semibold border border-indigo-500 rounded hover:bg-indigo-500 hover:text-white hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
-                <a href="{{ route('post.search.roommate') }}">Proposer un appartement </a>
-            </button>
-        </div>
-        <div>
-            <button class="py-2 px-4 text-indigo-500 font-semibold border border-indigo-500 rounded hover:bg-[#fdb414] hover:text-white hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
-                <a href="{{ route('post.search.appartment') }}">Se proposer pour colocation</a>
-                
-            </button>
-        </div>
+        @include('postButton.offerAnApartment')
+        @include('postButton.offerToShare')
     </div>
 
     {{-- Footer --}}

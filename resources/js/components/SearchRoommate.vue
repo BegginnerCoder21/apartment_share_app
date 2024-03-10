@@ -112,7 +112,9 @@ const submit_data = async() => {
             }
           })
     .then((res) => {
-        console.log('success',res);
+ 
+        window.location.href = "/";
+        
     }).catch((error) =>  {
         console.log('error',error);
     });
@@ -126,6 +128,3 @@ const submit_data = async() => {
 }
 </script>
 
-<style scoped>
-
-</style>
