@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Enum\CategoryPost;
 use App\Models\Commune;
 use App\Models\HousingPost;
+use App\Models\SearchPost;
 use Illuminate\Http\Request;
 
 class SearchBarController extends Controller
@@ -13,18 +14,21 @@ class SearchBarController extends Controller
 
     public function __invoke()
     {
-        $search_result = '';
+        $search_result = [];
 
         $commune = Commune::where('libelle', request()->get('search'))->select('id')->first();
-        if (request()->get('category_post') == CategoryPost::post_roommate) {
 
-            $search_result = HousingPost::where('commune_id', $commune->id)->with('commune', 'images', 'user')->get();
-        } else if (request()->get('category_post') == CategoryPost::post_coloc) {
-
-            $search_result = Commune::where('libelle', request()->get('search'))->with('searchPosts')->get();
+        if(isset($commune->id)){
+            
+            if (request()->get('category_post') == CategoryPost::post_roommate) {
+    
+                $search_result['housingPost'] = HousingPost::where('commune_id', $commune->id)->with('commune', 'images', 'user')->get();
+            } else if (request()->get('category_post') == CategoryPost::post_coloc) {
+    
+                $search_result['searchPosts'] = $commune->searchPosts()->wherePivot('commune_id', $commune->id)->with('communes', 'user')->get();
+            }
         }
-        return response()->json([
-            "success" => $search_result
-        ]);
+
+        return response()->json($search_result);
     }
 }

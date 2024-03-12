@@ -22,7 +22,8 @@
     </head>
     <body class="font-sans antialiased" id="app">
         <div class="min-h-screen">
-        
+            {{-- navbar --}}
+            @include('components.header')
 
             <!-- Page Heading -->
             @if (isset($header))

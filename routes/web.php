@@ -3,6 +3,7 @@
 use App\Http\Controllers\AppartementSharingContoller;
 use App\Http\Controllers\MainRoommatePostController;
 use App\Http\Controllers\MainSearchPostController;
+use App\Http\Controllers\Posts\MyPostsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchPostController;
 use App\Http\Controllers\SearchRoommateController;
@@ -37,6 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/search-appartment',[SearchPostController::class,'index'])->name('post.search.appartment');
     Route::post('/search-store-appartment',[SearchPostController::class,'creatingSearchPost'])->name('post.store.search.appartment');
     Route::middleware('is_furnished')->post('/search-store-roommate',[SearchRoommateController::class,'creatingSearchRoommate'])->name('post.store.search.roommate');
+    Route::get('post-list',[MyPostsController::class,'index'])->name('post.list');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

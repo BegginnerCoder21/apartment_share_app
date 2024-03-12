@@ -1,7 +1,5 @@
 <x-guest-layout>
     <div>
-        
-        @include('components.header')
         <div>
             
             <div class="flex flex-col space-y-6 mt-6 justify-center items-center mb-32">

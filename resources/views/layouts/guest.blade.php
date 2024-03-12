@@ -25,7 +25,8 @@
     </head>
     <body class="font-sans text-gray-900 antialiased" id="app">
         <div class="min-h-screen  pt-6 sm:pt-0">
-            
+            {{-- navbar --}}
+            @include('components.header')
             
             <div class="">
                 {{ $slot }}

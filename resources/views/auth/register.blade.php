@@ -1,5 +1,4 @@
 <x-guest-layout>
-    @include('components.header')
     <div class="container mx-auto h-[50px]">
         <div class="flex justify-center px-6 my-12">
             <!-- Row -->

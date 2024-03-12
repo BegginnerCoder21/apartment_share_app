@@ -1,8 +1,5 @@
 <x-guest-layout>
 
-
-{{-- navbar --}}
-@include('components.header')
 <div class="flex flex-row gap-6 mx-16 justify-around items-center">
     <div class="space-y-14">
         <div class="w-64 space-y-4 -mt-20">

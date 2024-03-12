@@ -4,10 +4,10 @@
     <search-bar @send-content-search="communeSearch" ></search-bar>
 
     <!-- Carte d'appartement -->
-    <post-roommate :dataRoommate="dataRoommate"></post-roommate>
+    <post-roommate :dataRoommate="dataRoommate" :postRoommateTitle="postRoommateTitle" :dataEmptyRoommate="dataEmptyRoommate"></post-roommate>
     
     <!-- carte de colocataire -->
-    <post-search-appartment :dataSearchPost="dataSearchPost"></post-search-appartment>
+    <post-search-appartment :dataSearchPost="dataSearchPost" :appartementSharingTitle="appartementSharingTitle" :dataEmptyAppartementSharing="dataEmptyAppartementSharing"></post-search-appartment>
     </div>
 </template>
 
@@ -19,7 +19,10 @@ import type {searchCommuneType} from '../../types/searchCommune';
 
 const dataRoommate = ref([]);
 const dataSearchPost = ref([]);
-
+const postRoommateTitle = ref('Les appartements proposés en colocation');
+const appartementSharingTitle = ref('Les personnes recherchants une colocation');
+const dataEmptyRoommate = ref(false)
+const dataEmptyAppartementSharing = ref(false)
 
 const getSearchPost = async() => {
     await axios.get('/get-search-post').then((res) => {
@@ -56,12 +59,25 @@ const communeSearch = async(contentSearch : searchCommuneType) => {
             }
         }).then(async (res) => {
             
-            dataRoommate.value = res.data.success;
-            console.log(dataRoommate.value);
-            
-            
-            
-    
+            if(res.data.housingPost){
+                
+                dataSearchPost.value = [];
+                appartementSharingTitle.value = '';
+                postRoommateTitle.value = 'Les appartements proposés en colocation';
+                dataRoommate.value = res.data.housingPost;
+                dataEmptyAppartementSharing.value = false;
+                dataEmptyRoommate.value = res.data.housingPost.length > 0 ? false : true;
+
+                return;
+            }
+
+            dataRoommate.value = [];
+            postRoommateTitle.value = "";
+            appartementSharingTitle.value = 'Les personnes recherchants une colocation';
+            dataSearchPost.value = res.data.searchPosts;
+            dataEmptyRoommate.value = false;
+            dataEmptyAppartementSharing.value = res.data.searchPosts.length > 0 ? false : true;
+             
         }).catch((error) => {
             console.log(error);
         });
