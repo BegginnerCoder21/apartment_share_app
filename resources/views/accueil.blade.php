@@ -2,16 +2,16 @@
 
 <div class="flex flex-row gap-6 mx-16 justify-around items-center">
     <div class="space-y-14">
-        <div class="w-64 space-y-4 -mt-20">
+        <div class="w-64 space-y-4 lg:-mt-20 mt-10">
             <h1 class="font-bold text-3xl">BabiColoc</h1>
             <p class="text-wrap">Trouver le compagnon idéal pour partager bien plus qu'un toit découvrez notre application de colocation dès maintenant !</p>
         </div>
-        <div class="flex flex-row space-x-3">
+        <div class="flex flex-col space-y-3 lg:flex-row lg:space-y-0 lg:space-x-3 ">
             @include('postButton.offerAnApartment')
             @include('postButton.offerToShare')
         </div>
     </div>
-    <div class="">
+    <div class="hidden lg:block">
         <img src="{{ asset('build/assets/coloc4.jpg') }}" class=" h-[450px] " alt="">
     </div>
 </div>
@@ -22,22 +22,22 @@
     
     
     {{-- A propos de nous --}}
-    <div id="apropos" class=" flex flex-row gap-10 mx-6 justify-center items-start mb-16">
-        <div class="justify-center max-w-[27%] flex flex-col items-center">
+    <div id="apropos" class=" flex flex-col space-y-4 lg:flex-row gap-10 mx-6 lg:justify-center items-start mb-16">
+        <div class="lg:justify-center  mx-auto max-w-[85%] lg:max-w-[27%]  flex flex-col items-center">
             <div class=" text-indigo-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="lg:size-16 size-10">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                   </svg>
                   
             </div>
-            <h2 class="text-xl font-semibold ">Trouver une chambre</h2>
-            <div class="text-center text-sm">
+            <h2 class="text-xl font-semibold">Trouver une chambre</h2>
+            <div class="text-center  text-sm">
                 Pour votre sécurité, nous vérifions manuellement chaque annonce postée sur notre site. Trouvez votre colocation idéale, rencontrez les colocataires qui y habitent et organisez des visites.
             </div>
         </div>
-        <div class="justify-center max-w-[27%]  flex flex-col items-center">
+        <div class="lg:justify-center  mx-auto max-w-[85%] lg:max-w-[27%]  flex flex-col items-center">
             <div class=" text-indigo-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="lg:size-16 size-10">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                   </svg>
                   
@@ -48,9 +48,9 @@
                 Consultez les colocataires cherchant une chambre dans votre région et trouver la personne idéale pour votre colocation. Offrez leur votre chambre directement ou attendez qu'ils vous contactent, c'est votre choix!
             </div>
         </div>
-        <div class="justify-center max-w-[27%] flex flex-col items-center">
+        <div class="lg:justify-center  mx-auto max-w-[85%] lg:max-w-[27%] flex flex-col items-center">
             <div class=" text-indigo-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="lg:size-16 size-10">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
                   </svg>
                   
@@ -64,7 +64,7 @@
     </div>
 
     
-    <div class="flex flex-row gap-32 mb-16 justify-center items-center">
+    <div class="flex flex-col lg:flex-row gap-4 lg:gap-32 mb-16 justify-center items-center">
         
         @include('postButton.offerAnApartment')
         @include('postButton.offerToShare')

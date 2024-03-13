@@ -60,7 +60,7 @@
                         <td class="py-5  border-b border-indigo-400 bg-white text-sm">
                             <div class="space-x-3">
                                 <a href="#" class="px-4 py-2 text-white bg-indigo-500 rounded-sm hover:bg-indigo-600">Supprimer</a>
-                                <a href="#" class="px-4 py-2 text-white bg-indigo-500 rounded-sm hover:bg-indigo-600">Modifier</a>
+                                <a href="{{ route('edit.post.roommate',$post->id) }}" class="px-4 py-2 text-white bg-indigo-500 rounded-sm hover:bg-indigo-600">Modifier</a>
                             </div>
                         </td>
                     </tr>   
@@ -94,7 +94,7 @@
                         <td class="py-5  border-b border-indigo-400 bg-white text-sm">
                             <div class="space-x-3">
                                 <a href="#" class="px-4 py-2 text-white bg-indigo-500 rounded-sm hover:bg-indigo-600">Supprimer</a>
-                                <a href="#" class="px-4 py-2 text-white bg-indigo-500 rounded-sm hover:bg-indigo-600">Modifier</a>
+                                <a href="{{ route('edit.post.sharing',$post->id) }}" class="px-4 py-2 text-white bg-indigo-500 rounded-sm hover:bg-indigo-600">Modifier</a>
                             </div>
                         </td>
                     </tr>  
